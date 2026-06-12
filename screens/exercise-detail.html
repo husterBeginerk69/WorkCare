@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkCare — Chi tiết bài tập</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/screens/exercise-detail.css">
+</head>
+<body data-page="exercise-detail">
+<div class="canvas">
+<!-- FRAME 8: Chi tiết bài tập -->
+<div>
+<p class="lbl">Frame 8 — Chi tiết bài tập</p>
+<div class="phone">
+<div class="notch"></div>
+<div class="screen f8">
+  <div class="f8-hero">
+    <div class="f8-back"><i class="ti ti-arrow-left" style="font-size:18px;color:var(--text)" aria-hidden="true"></i></div>
+    <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+      <!-- person doing neck stretch -->
+      <circle cx="110" cy="55" r="22" fill="#FED7AA"/>
+      <!-- neck tilt -->
+      <path d="M108 77 C108 77 95 85 90 95" stroke="#FED7AA" stroke-width="8" stroke-linecap="round"/>
+      <!-- body -->
+      <rect x="82" y="95" width="56" height="60" rx="16" fill="#2563EB"/>
+      <!-- chair back -->
+      <rect x="75" y="88" width="12" height="80" rx="6" fill="#93C5FD"/>
+      <rect x="133" y="88" width="12" height="80" rx="6" fill="#93C5FD"/>
+      <rect x="75" y="155" width="70" height="12" rx="6" fill="#BFDBFE"/>
+      <!-- arms -->
+      <path d="M138 105 L160 120 L155 130" stroke="#FED7AA" stroke-width="6" stroke-linecap="round"/>
+      <path d="M82 105 L65 118 L70 128" stroke="#FED7AA" stroke-width="6" stroke-linecap="round"/>
+      <!-- motion arc -->
+      <path d="M88 48 C75 42 68 30 78 25" stroke="#60A5FA" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
+      <path d="M130 48 C143 42 150 30 140 25" stroke="#60A5FA" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
+      <!-- arrows -->
+      <path d="M78 25 L84 30 L74 32" stroke="#60A5FA" stroke-width="2" fill="none"/>
+      <path d="M140 25 L134 30 L144 32" stroke="#60A5FA" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+  <div class="f8-body">
+    <p class="f8-name">Giãn cơ cổ</p>
+    <div class="f8-dur-row">
+      <i class="ti ti-clock" aria-hidden="true"></i><span style="color:var(--sub);font-size:13px">3 phút</span>
+      <span style="margin:0 8px;color:var(--border)">•</span>
+      <span style="background:#F0FDF4;color:var(--green);font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px">Dễ thực hiện</span>
+    </div>
+    <div class="exercise-progress" id="exerciseProgress"><span class="progress-label">Bước 1/4</span></div>
+    <div class="steps">
+      <div class="step-row"><div class="step-num">1</div><p class="step-txt">Ngồi thẳng lưng, thả lỏng hai vai. Nhìn thẳng về phía trước.</p></div>
+      <div class="step-row"><div class="step-num">2</div><p class="step-txt">Từ từ nghiêng đầu sang phải, tai chạm gần vai. Giữ 15 giây.</p></div>
+      <div class="step-row"><div class="step-num">3</div><p class="step-txt">Trở về vị trí ban đầu, nghiêng sang trái. Giữ 15 giây.</p></div>
+      <div class="step-row"><div class="step-num">4</div><p class="step-txt">Lặp lại 5 lần mỗi bên. Thở đều, không giật cơ.</p></div>
+    </div>
+    <button class="btn-primary" id="nextStepBtn" style="margin-top:12px"><i class="ti ti-player-play" aria-hidden="true"></i>&nbsp;Tiếp theo</button>
+  </div>
+</div>
+</div>
+</div>
+</div>
+  <script type="module" src="../js/app.js"></script>
+</body>
+</html>

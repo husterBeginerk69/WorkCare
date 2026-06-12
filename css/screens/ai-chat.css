@@ -1,0 +1,30 @@
+.chat-box{
+    height:450px;
+    overflow-y:auto;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:10px;
+}
+
+.msg{
+    margin:10px 0;
+    padding:10px;
+    border-radius:12px;
+}
+
+.msg.ai{
+    background:#DCFCE7;
+}
+
+.msg.user{
+    background:#DBEAFE;
+    text-align:right;
+}
+
+.ai-screen{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    background:#f8fafc;
+}
