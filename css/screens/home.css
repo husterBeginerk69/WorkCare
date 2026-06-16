@@ -1,1 +1,8 @@
 /* --- Frame 5: Trang chủ --- */
+.timer-bar-wrap {
+  margin: 10px 16px 0;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 14px;
+}

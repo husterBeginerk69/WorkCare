@@ -1,234 +1,232 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>WorkCare — AI Coach</title>
-
-  <link rel="stylesheet" href="../css/variables.css">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components.css">
-
-  <style>
-    .ai-screen{
-      background:#F8FAFC;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-    }
-
-    .ai-header{
-      background:linear-gradient(135deg,#2563EB,#3B82F6);
-      color:white;
-      padding:50px 20px 20px;
-    }
-
-    .ai-top{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .back-btn{
-      width:36px;
-      height:36px;
-      border:none;
-      border-radius:50%;
-      cursor:pointer;
-      background:rgba(255,255,255,.2);
-      color:white;
-      font-size:18px;
-    }
-
-    .ai-title{
-      font-size:20px;
-      font-weight:700;
-    }
-
-    .ai-sub{
-      margin-top:6px;
-      font-size:13px;
-      opacity:.85;
-    }
-
-    .chat-box{
-      flex:1;
-      overflow-y:auto;
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .msg{
-      max-width:80%;
-      padding:12px 14px;
-      border-radius:16px;
-      line-height:1.5;
-      font-size:14px;
-    }
-
-    .msg.ai{
-      background:#DCFCE7;
-      align-self:flex-start;
-    }
-
-    .msg.user{
-      background:#DBEAFE;
-      align-self:flex-end;
-    }
-
-    .input-area{
-      padding:14px;
-      border-top:1px solid #E2E8F0;
-      background:white;
-    }
-
-    .input-row{
-      display:flex;
-      gap:10px;
-    }
-
-    #userInput{
-      flex:1;
-      padding:12px;
-      border:1px solid #CBD5E1;
-      border-radius:12px;
-      outline:none;
-    }
-
-    #sendBtn{
-      border:none;
-      border-radius:12px;
-      padding:0 18px;
-      cursor:pointer;
-    }
-
-    .suggest-box{
-      display:flex;
-      gap:8px;
-      overflow-x:auto;
-      margin-bottom:10px;
-    }
-
-    .suggest{
-      white-space:nowrap;
-      border:none;
-      border-radius:999px;
-      padding:8px 12px;
-      background:#EFF6FF;
-      cursor:pointer;
-      color:#2563EB;
-      font-size:12px;
-    }
-  </style>
-</head>
-
-<body class="ready">
-
-<div class="canvas">
-
-  <div>
-    <p class="lbl">Frame AI — Trợ lý AI</p>
-
-    <div class="phone">
-
-      <div class="notch"></div>
-
-      <div class="screen ai-screen">
-
-        <div class="ai-header">
-
-          <div class="ai-top">
-
-            <button
-              class="back-btn"
-              onclick="location.href='home.html'"
-            >
-              ←
-            </button>
-
-            <div>
-              <div class="ai-title">
-                🤖 AI Coach
-              </div>
-
-              <div class="ai-sub">
-                Trợ lý sức khỏe dân văn phòng
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorkCare — AI Coach</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <style>
+      .ai-screen {
+        background: #f8fafc;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .ai-header {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        color: white;
+        padding: 50px 20px 20px;
+      }
+      .ai-top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .back-btn {
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ai-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .ai-sub {
+        margin-top: 6px;
+        font-size: 13px;
+        opacity: 0.85;
+      }
+      .chat-box {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .msg {
+        max-width: 85%;
+        padding: 12px 14px;
+        border-radius: 16px;
+        line-height: 1.5;
+        font-size: 14px;
+        animation: msgIn 0.3s ease;
+      }
+      @keyframes msgIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .msg.ai {
+        background: #dcfce7;
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+      }
+      .msg.user {
+        background: #dbeafe;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+      }
+      .input-area {
+        padding: 14px;
+        border-top: 1px solid #e2e8f0;
+        background: white;
+      }
+      .input-row {
+        display: flex;
+        gap: 10px;
+      }
+      #userInput {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 12px;
+        outline: none;
+        font-family: "Be Vietnam Pro", sans-serif;
+      }
+      #sendBtn {
+        border: none;
+        border-radius: 12px;
+        padding: 0 18px;
+        cursor: pointer;
+      }
+      .suggest-box {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        margin-bottom: 10px;
+        padding-bottom: 4px;
+      }
+      .suggest {
+        white-space: nowrap;
+        border: none;
+        border-radius: 999px;
+        padding: 8px 12px;
+        background: #eff6ff;
+        cursor: pointer;
+        color: #2563eb;
+        font-size: 12px;
+        font-family: "Be Vietnam Pro", sans-serif;
+        transition: background 0.2s;
+      }
+      .suggest:hover {
+        background: #dbeafe;
+      }
+      .typing {
+        display: flex;
+        gap: 4px;
+        padding: 12px 14px;
+      }
+      .typing span {
+        width: 8px;
+        height: 8px;
+        background: #94a3b8;
+        border-radius: 50%;
+        animation: typing 1.2s infinite;
+      }
+      .typing span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .typing span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      @keyframes typing {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: translateY(0);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(-4px);
+        }
+      }
+    </style>
+  </head>
+  <body class="ready">
+    <div class="canvas">
+      <div>
+        <p class="lbl">Frame AI — Trợ lý AI</p>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen ai-screen">
+            <div class="ai-header">
+              <div class="ai-top">
+                <button class="back-btn" onclick="location.href = 'home.html'">
+                  ←
+                </button>
+                <div>
+                  <div class="ai-title">🤖 AI Coach</div>
+                  <div class="ai-sub">Trợ lý sức khỏe dân văn phòng</div>
+                </div>
               </div>
             </div>
-
+            <div id="chatBox" class="chat-box">
+              <div class="msg ai">
+                Xin chào 👋<br />
+                Tôi là AI Coach của WorkCare.<br /><br />
+                Tôi có thể giúp bạn:
+                <br />• Đau cổ, mỏi vai <br />• Mỏi mắt <br />• Đau lưng <br />•
+                Đau cổ tay <br />• Căng thẳng, stress <br />• Nhắc uống nước
+                <br />• Ngồi lâu
+              </div>
+            </div>
+            <div class="input-area">
+              <div class="suggest-box">
+                <button class="suggest" data-text="Đau cổ">🔄 Đau cổ</button>
+                <button class="suggest" data-text="Mỏi mắt">👁️ Mỏi mắt</button>
+                <button class="suggest" data-text="Đau lưng">
+                  🦴 Đau lưng
+                </button>
+                <button class="suggest" data-text="Căng thẳng">
+                  😰 Căng thẳng
+                </button>
+                <button class="suggest" data-text="Uống nước">
+                  💧 Uống nước
+                </button>
+                <button class="suggest" data-text="Ngồi lâu">
+                  🪑 Ngồi lâu
+                </button>
+              </div>
+              <div class="input-row">
+                <input
+                  id="userInput"
+                  type="text"
+                  placeholder="Nhập câu hỏi..."
+                />
+                <button
+                  id="sendBtn"
+                  class="btn-primary"
+                  style="width: auto; padding: 0 20px; height: 48px"
+                >
+                  Gửi
+                </button>
+              </div>
+            </div>
           </div>
-
         </div>
-
-        <div id="chatBox" class="chat-box">
-
-          <div class="msg ai">
-            Xin chào 👋<br>
-            Tôi là AI Coach của WorkCare.<br><br>
-
-            Tôi có thể giúp bạn:
-            <br>• Đau cổ
-            <br>• Mỏi mắt
-            <br>• Đau lưng
-            <br>• Nhắc uống nước
-          </div>
-
-        </div>
-
-        <div class="input-area">
-
-          <div class="suggest-box">
-
-            <button class="suggest">
-              Đau cổ
-            </button>
-
-            <button class="suggest">
-              Mỏi mắt
-            </button>
-
-            <button class="suggest">
-              Đau lưng
-            </button>
-
-            <button class="suggest">
-              Uống nước
-            </button>
-
-          </div>
-
-          <div class="input-row">
-
-            <input
-              id="userInput"
-              type="text"
-              placeholder="Nhập câu hỏi..."
-            >
-
-            <button
-              id="sendBtn"
-              class="btn-primary"
-            >
-              Gửi
-            </button>
-
-          </div>
-
-        </div>
-
       </div>
-
     </div>
-
-  </div>
-
-</div>
-
-<script src="../js/ai.js"></script>
-
-</body>
+    <script src="../js/ai.js"></script>
+  </body>
 </html>

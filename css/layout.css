@@ -36,6 +36,21 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+.screen > .scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.screen > *:not(.scroll-area):not(.nav-bar):not(.ai-fab):not(.modal-overlay) {
+  flex-shrink: 0;
+}
+
+.screen > .nav-bar {
+  flex-shrink: 0;
 }
 
 .lbl {

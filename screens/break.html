@@ -1,72 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WorkCare — Thông báo nghỉ ngơi</title>
-  <link rel="stylesheet" href="../css/variables.css">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/screens/break.css">
-</head>
-<body data-page="break">
-<div class="canvas">
-<!-- FRAME 6: Thông báo nghỉ -->
-<div>
-<p class="lbl">Frame 6 — Thông báo nghỉ ngơi</p>
-<div class="phone">
-<div class="notch"></div>
-<div class="screen f6">
-  <div class="f6-top">
-    <div class="f6-badge">✨ Đã đến giờ nghỉ ngơi</div>
-    <svg width="200" height="180" viewBox="0 0 200 180" fill="none">
-      <!-- hammock / relaxing person -->
-      <ellipse cx="100" cy="155" rx="70" ry="8" fill="#BBF7D0" opacity=".5"/>
-      <!-- sofa -->
-      <rect x="30" y="120" width="140" height="35" rx="12" fill="#86EFAC"/>
-      <rect x="22" y="108" width="20" height="50" rx="8" fill="#4ADE80"/>
-      <rect x="158" y="108" width="20" height="50" rx="8" fill="#4ADE80"/>
-      <rect x="30" y="108" width="140" height="20" rx="8" fill="#4ADE80"/>
-      <!-- person relaxing -->
-      <circle cx="100" cy="95" r="16" fill="#FED7AA"/>
-      <rect x="55" y="110" width="90" height="20" rx="10" fill="#2563EB"/>
-      <!-- legs up -->
-      <path d="M140 115 C150 110 160 115 155 125" stroke="#FED7AA" stroke-width="7" stroke-linecap="round" fill="none"/>
-      <path d="M155 125 C160 130 158 138 153 135" stroke="#FED7AA" stroke-width="7" stroke-linecap="round" fill="none"/>
-      <!-- stars / zz -->
-      <text x="128" y="72" font-size="18" fill="#FDE68A" opacity=".9">z</text>
-      <text x="143" y="58" font-size="13" fill="#FDE68A" opacity=".7">z</text>
-      <text x="155" y="48" font-size="10" fill="#FDE68A" opacity=".5">z</text>
-      <!-- plants -->
-      <circle cx="35" cy="100" r="14" fill="#86EFAC"/>
-      <circle cx="28" cy="108" r="10" fill="#4ADE80"/>
-      <rect x="33" y="118" width="6" height="20" rx="3" fill="#166534"/>
-      <circle cx="168" cy="98" r="12" fill="#86EFAC"/>
-      <rect x="165" y="112" width="6" height="20" rx="3" fill="#166534"/>
-    </svg>
-  </div>
-  <div class="f6-body">
-    <p class="f6-title">Đã đến giờ nghỉ ngơi!</p>
-    <p class="f6-desc">Bạn đã làm việc liên tục trong <strong>60 phút</strong>. Hãy dành thời gian nghỉ ngơi để bảo vệ sức khỏe của mình.</p>
-    <div class="f6-time-row">
-      <div class="time-chip"><p class="time-chip-val">60'</p><p class="time-chip-lbl">Đã làm việc</p></div>
-      <div class="time-chip"><p class="time-chip-val" style="color:var(--green)">10'</p><p class="time-chip-lbl">Nên nghỉ</p></div>
-      <div class="time-chip"><p class="time-chip-val" style="color:var(--blue)">5</p><p class="time-chip-lbl">Bài tập gợi ý</p></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorkCare — Thông báo nghỉ ngơi</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/screens/break.css" />
+  </head>
+  <body data-page="break">
+    <div class="canvas">
+      <!-- FRAME 6: Thông báo nghỉ -->
+      <div>
+        <p class="lbl">Frame 6 — Thông báo nghỉ ngơi</p>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen f6">
+            <div class="f6-top" style="position: relative">
+              <div
+                class="back-btn"
+                style="
+                  position: absolute;
+                  top: 36px;
+                  left: 16px;
+                  width: 36px;
+                  height: 36px;
+                  background: rgba(255, 255, 255, 0.8);
+                  border-radius: 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  z-index: 5;
+                "
+                onclick="window.location.href = 'home.html'"
+              >
+                <i
+                  class="ti ti-arrow-left"
+                  style="font-size: 18px; color: #0f172a"
+                ></i>
+              </div>
+              <div class="f6-badge">✨ Đã đến giờ nghỉ ngơi</div>
+              <svg width="200" height="180" viewBox="0 0 200 180" fill="none">
+                <!-- hammock / relaxing person -->
+                <ellipse
+                  cx="100"
+                  cy="155"
+                  rx="70"
+                  ry="8"
+                  fill="#BBF7D0"
+                  opacity=".5"
+                />
+                <!-- sofa -->
+                <rect
+                  x="30"
+                  y="120"
+                  width="140"
+                  height="35"
+                  rx="12"
+                  fill="#86EFAC"
+                />
+                <rect
+                  x="22"
+                  y="108"
+                  width="20"
+                  height="50"
+                  rx="8"
+                  fill="#4ADE80"
+                />
+                <rect
+                  x="158"
+                  y="108"
+                  width="20"
+                  height="50"
+                  rx="8"
+                  fill="#4ADE80"
+                />
+                <rect
+                  x="30"
+                  y="108"
+                  width="140"
+                  height="20"
+                  rx="8"
+                  fill="#4ADE80"
+                />
+                <!-- person relaxing -->
+                <circle cx="100" cy="95" r="16" fill="#FED7AA" />
+                <rect
+                  x="55"
+                  y="110"
+                  width="90"
+                  height="20"
+                  rx="10"
+                  fill="#2563EB"
+                />
+                <!-- legs up -->
+                <path
+                  d="M140 115 C150 110 160 115 155 125"
+                  stroke="#FED7AA"
+                  stroke-width="7"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M155 125 C160 130 158 138 153 135"
+                  stroke="#FED7AA"
+                  stroke-width="7"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+                <!-- stars / zz -->
+                <text x="128" y="72" font-size="18" fill="#FDE68A" opacity=".9">
+                  z
+                </text>
+                <text x="143" y="58" font-size="13" fill="#FDE68A" opacity=".7">
+                  z
+                </text>
+                <text x="155" y="48" font-size="10" fill="#FDE68A" opacity=".5">
+                  z
+                </text>
+                <!-- plants -->
+                <circle cx="35" cy="100" r="14" fill="#86EFAC" />
+                <circle cx="28" cy="108" r="10" fill="#4ADE80" />
+                <rect
+                  x="33"
+                  y="118"
+                  width="6"
+                  height="20"
+                  rx="3"
+                  fill="#166534"
+                />
+                <circle cx="168" cy="98" r="12" fill="#86EFAC" />
+                <rect
+                  x="165"
+                  y="112"
+                  width="6"
+                  height="20"
+                  rx="3"
+                  fill="#166534"
+                />
+              </svg>
+            </div>
+            <div class="f6-body">
+              <p class="f6-title">Đã đến giờ nghỉ ngơi!</p>
+              <p class="f6-desc">
+                Bạn đã làm việc liên tục trong <strong>60 phút</strong>. Hãy
+                dành thời gian nghỉ ngơi để bảo vệ sức khỏe của mình.
+              </p>
+              <div class="f6-time-row">
+                <div class="time-chip">
+                  <p class="time-chip-val">60'</p>
+                  <p class="time-chip-lbl">Đã làm việc</p>
+                </div>
+                <div class="time-chip">
+                  <p
+                    class="time-chip-val"
+                    id="breakTimer"
+                    style="color: var(--green)"
+                  >
+                    10:00
+                  </p>
+                  <p class="time-chip-lbl">Đếm ngược</p>
+                </div>
+                <div class="time-chip">
+                  <p class="time-chip-val" style="color: var(--blue)">5</p>
+                  <p class="time-chip-lbl">Bài tập gợi ý</p>
+                </div>
+              </div>
+              <button
+                class="btn-primary"
+                id="breakNowBtn"
+                style="margin-bottom: 12px"
+              >
+                🧘 Nghỉ ngay
+              </button>
+              <button class="btn-outline" id="breakLaterBtn">
+                ⏰ Nhắc lại sau 5 phút
+              </button>
+              <p
+                style="
+                  text-align: center;
+                  font-size: 12px;
+                  color: var(--sub);
+                  margin-top: 12px;
+                "
+              >
+                <i class="ti ti-music" style="font-size: 14px"></i> Âm thanh
+                thông báo đã được phát
+              </p>
+            </div>
+            <div class="nav-bar">
+              <div class="nav-item active">
+                <i class="ti ti-home" aria-hidden="true"></i
+                ><span>Trang chủ</span>
+              </div>
+              <div class="nav-item">
+                <i class="ti ti-chart-bar" aria-hidden="true"></i
+                ><span>Thống kê</span>
+              </div>
+              <div class="nav-item">
+                <i class="ti ti-trophy" aria-hidden="true"></i
+                ><span>Thành tích</span>
+              </div>
+              <div class="nav-item">
+                <i class="ti ti-user" aria-hidden="true"></i
+                ><span>Cá nhân</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <button class="btn-primary" style="margin-bottom:12px">Nghỉ ngay</button>
-    <button class="btn-outline">Nhắc lại sau 5 phút</button>
-  </div>
-  <div class="nav-bar">
-    <div class="nav-item active"><i class="ti ti-home" aria-hidden="true"></i><span>Trang chủ</span></div>
-    <div class="nav-item"><i class="ti ti-chart-bar" aria-hidden="true"></i><span>Thống kê</span></div>
-    <div class="nav-item"><i class="ti ti-trophy" aria-hidden="true"></i><span>Thành tích</span></div>
-    <div class="nav-item"><i class="ti ti-user" aria-hidden="true"></i><span>Cá nhân</span></div>
-  </div>
-</div>
-</div>
-</div>
-</div>
-  <script type="module" src="../js/app.js"></script>
-</body>
+    <script src="../js/app.js"></script>
+  </body>
 </html>

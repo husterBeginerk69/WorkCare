@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WorkCare — Giới thiệu tính năng</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css"
+    />
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/layout.css" />
@@ -12,15 +16,35 @@
   </head>
   <body data-page="intro">
     <div class="canvas">
-      <!-- FRAME 2: Giới thiệu -->
       <div>
         <p class="lbl">Frame 2 — Giới thiệu tính năng</p>
         <div class="phone">
           <div class="notch"></div>
           <div class="screen f2">
-            <div class="f2-top">
+            <div class="f2-top" style="position: relative">
+              <div
+                onclick="window.location.href = 'welcome.html'"
+                style="
+                  position: absolute;
+                  top: 24px;
+                  left: 16px;
+                  width: 36px;
+                  height: 36px;
+                  background: rgba(0, 0, 0, 0.05);
+                  border-radius: 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  z-index: 5;
+                "
+              >
+                <i
+                  class="ti ti-arrow-left"
+                  style="font-size: 18px; color: #0f172a"
+                ></i>
+              </div>
               <svg width="260" height="220" viewBox="0 0 260 220" fill="none">
-                <!-- chair + desk -->
                 <rect
                   x="50"
                   y="150"
@@ -45,7 +69,6 @@
                   rx="3"
                   fill="#86EFAC"
                 />
-                <!-- laptop -->
                 <rect
                   x="80"
                   y="105"
@@ -70,7 +93,6 @@
                   rx="3"
                   fill="#93C5FD"
                 />
-                <!-- screen bars -->
                 <rect
                   x="92"
                   y="116"
@@ -104,7 +126,6 @@
                   fill="#2563EB"
                   opacity=".15"
                 />
-                <!-- person sitting -->
                 <circle cx="130" cy="75" r="18" fill="#FED7AA" />
                 <rect
                   x="110"
@@ -114,7 +135,6 @@
                   rx="8"
                   fill="#16A34A"
                 />
-                <!-- notification bubble -->
                 <rect
                   x="155"
                   y="55"
@@ -175,7 +195,6 @@
                     <i
                       class="ti ti-clock"
                       style="color: #2563eb; font-size: 18px"
-                      aria-hidden="true"
                     ></i>
                   </div>
                   <div>
@@ -190,7 +209,6 @@
                     <i
                       class="ti ti-activity"
                       style="color: #16a34a; font-size: 18px"
-                      aria-hidden="true"
                     ></i>
                   </div>
                   <div>
@@ -205,7 +223,6 @@
                     <i
                       class="ti ti-droplet"
                       style="color: #0891b2; font-size: 18px"
-                      aria-hidden="true"
                     ></i>
                   </div>
                   <div>
@@ -239,6 +256,6 @@
         </div>
       </div>
     </div>
-    <script type="module" src="../js/app.js"></script>
+    <script src="../js/app.js"></script>
   </body>
 </html>

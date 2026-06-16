@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WorkCare — Đăng ký</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css"
+    />
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/layout.css" />
@@ -12,16 +16,41 @@
   </head>
   <body data-page="register">
     <div class="canvas">
-      <!-- FRAME 4: Đăng ký -->
       <div>
         <p class="lbl">Frame 4 — Đăng ký</p>
         <div class="phone">
           <div class="notch"></div>
-          <div class="screen f3" style="">
+          <div class="screen f3">
             <div
               class="f3-head"
-              style="padding-top: 52px; padding-bottom: 20px"
+              style="
+                padding-top: 52px;
+                padding-bottom: 20px;
+                position: relative;
+              "
             >
+              <div
+                onclick="window.location.href = 'login.html'"
+                style="
+                  position: absolute;
+                  top: 36px;
+                  left: 16px;
+                  width: 36px;
+                  height: 36px;
+                  background: rgba(0, 0, 0, 0.05);
+                  border-radius: 10px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  z-index: 5;
+                "
+              >
+                <i
+                  class="ti ti-arrow-left"
+                  style="font-size: 18px; color: #0f172a"
+                ></i>
+              </div>
               <p class="f3-title">Tạo tài khoản mới</p>
               <p class="f3-sub">
                 Bắt đầu hành trình chăm sóc sức khỏe cùng WorkCare
@@ -31,8 +60,8 @@
               <div class="inp-wrap">
                 <label class="inp-lbl" for="authName">Họ và tên</label>
                 <div class="inp-row">
-                  <i class="ti ti-user" aria-hidden="true"></i
-                  ><input
+                  <i class="ti ti-user"></i>
+                  <input
                     id="authName"
                     type="text"
                     class="inp"
@@ -44,8 +73,8 @@
               <div class="inp-wrap">
                 <label class="inp-lbl" for="authEmail">Địa chỉ email</label>
                 <div class="inp-row">
-                  <i class="ti ti-mail" aria-hidden="true"></i
-                  ><input
+                  <i class="ti ti-mail"></i>
+                  <input
                     id="authEmail"
                     type="email"
                     class="inp"
@@ -57,16 +86,16 @@
               <div class="inp-wrap">
                 <label class="inp-lbl" for="authPassword">Mật khẩu</label>
                 <div class="inp-row">
-                  <i class="ti ti-lock" aria-hidden="true"></i
-                  ><input
+                  <i class="ti ti-lock"></i>
+                  <input
                     id="authPassword"
                     type="password"
                     class="inp"
                     placeholder="Ít nhất 8 ký tự"
-                  /><i
+                  />
+                  <i
                     class="ti ti-eye toggle-password"
                     data-target="authPassword"
-                    aria-hidden="true"
                   ></i>
                 </div>
                 <span class="error-text" id="authPasswordError"></span>
@@ -76,16 +105,16 @@
                   >Xác nhận mật khẩu</label
                 >
                 <div class="inp-row">
-                  <i class="ti ti-lock-check" aria-hidden="true"></i
-                  ><input
+                  <i class="ti ti-lock-check"></i>
+                  <input
                     id="authConfirm"
                     type="password"
                     class="inp"
                     placeholder="Nhập lại mật khẩu"
-                  /><i
+                  />
+                  <i
                     class="ti ti-eye toggle-password"
                     data-target="authConfirm"
-                    aria-hidden="true"
                   ></i>
                 </div>
                 <span class="error-text" id="authConfirmError"></span>
@@ -116,7 +145,6 @@
                   <i
                     class="ti ti-check"
                     style="font-size: 12px; color: #fff"
-                    aria-hidden="true"
                   ></i>
                 </div>
                 <span style="font-size: 12px; color: #15803d; line-height: 1.5"
@@ -130,7 +158,9 @@
                   ></span
                 >
               </div>
-              <button class="btn-primary" id="authSubmit">Đăng ký ngay</button>
+              <button class="btn-primary" id="authSubmit">
+                Đăng ký → Trang chủ
+              </button>
               <p style="text-align: center; font-size: 13px; color: var(--sub)">
                 Đã có tài khoản?
                 <span class="link-txt" id="goLoginLink">Đăng nhập</span>
@@ -140,6 +170,6 @@
         </div>
       </div>
     </div>
-    <script type="module" src="../js/app.js"></script>
+    <script src="../js/app.js"></script>
   </body>
 </html>

@@ -1,67 +1,304 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WorkCare — Chi tiết bài tập</title>
-  <link rel="stylesheet" href="../css/variables.css">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/screens/exercise-detail.css">
-</head>
-<body data-page="exercise-detail">
-<div class="canvas">
-<!-- FRAME 8: Chi tiết bài tập -->
-<div>
-<p class="lbl">Frame 8 — Chi tiết bài tập</p>
-<div class="phone">
-<div class="notch"></div>
-<div class="screen f8">
-  <div class="f8-hero">
-    <div class="f8-back"><i class="ti ti-arrow-left" style="font-size:18px;color:var(--text)" aria-hidden="true"></i></div>
-    <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
-      <!-- person doing neck stretch -->
-      <circle cx="110" cy="55" r="22" fill="#FED7AA"/>
-      <!-- neck tilt -->
-      <path d="M108 77 C108 77 95 85 90 95" stroke="#FED7AA" stroke-width="8" stroke-linecap="round"/>
-      <!-- body -->
-      <rect x="82" y="95" width="56" height="60" rx="16" fill="#2563EB"/>
-      <!-- chair back -->
-      <rect x="75" y="88" width="12" height="80" rx="6" fill="#93C5FD"/>
-      <rect x="133" y="88" width="12" height="80" rx="6" fill="#93C5FD"/>
-      <rect x="75" y="155" width="70" height="12" rx="6" fill="#BFDBFE"/>
-      <!-- arms -->
-      <path d="M138 105 L160 120 L155 130" stroke="#FED7AA" stroke-width="6" stroke-linecap="round"/>
-      <path d="M82 105 L65 118 L70 128" stroke="#FED7AA" stroke-width="6" stroke-linecap="round"/>
-      <!-- motion arc -->
-      <path d="M88 48 C75 42 68 30 78 25" stroke="#60A5FA" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
-      <path d="M130 48 C143 42 150 30 140 25" stroke="#60A5FA" stroke-width="2" stroke-dasharray="4 3" fill="none"/>
-      <!-- arrows -->
-      <path d="M78 25 L84 30 L74 32" stroke="#60A5FA" stroke-width="2" fill="none"/>
-      <path d="M140 25 L134 30 L144 32" stroke="#60A5FA" stroke-width="2" fill="none"/>
-    </svg>
-  </div>
-  <div class="f8-body">
-    <p class="f8-name">Giãn cơ cổ</p>
-    <div class="f8-dur-row">
-      <i class="ti ti-clock" aria-hidden="true"></i><span style="color:var(--sub);font-size:13px">3 phút</span>
-      <span style="margin:0 8px;color:var(--border)">•</span>
-      <span style="background:#F0FDF4;color:var(--green);font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px">Dễ thực hiện</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorkCare — Chi tiết bài tập</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/screens/exercise-detail.css" />
+    <style>
+      .ex-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 16px 0;
+      }
+      .ex-back {
+        position: absolute;
+        top: 50px;
+        left: 12px;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .ex-timer {
+        position: absolute;
+        top: 50px;
+        right: 12px;
+        width: 52px;
+        height: 52px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: 800;
+        color: var(--blue);
+        box-shadow: 0 2px 12px rgba(37, 99, 235, 0.15);
+        border: 3px solid var(--blue);
+        z-index: 10;
+      }
+      .ex-timer.done {
+        border-color: #22c55e;
+        color: #22c55e;
+      }
+      .ex-svg-box {
+        width: 200px;
+        height: 260px;
+        margin: 8px auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #eff6ff 0%, #f0fdf4 100%);
+        border-radius: 20px;
+        border: 2px solid #e2e8f0;
+        position: relative;
+        overflow: visible;
+      }
+      .ex-svg-box svg {
+        width: 180px;
+        height: 240px;
+      }
+      .step-text-box {
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 10px 14px;
+        margin: 8px 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .step-text-box .step-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: var(--blue);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .step-text-box .step-desc {
+        font-size: 13px;
+        color: var(--text);
+        line-height: 1.5;
+      }
+      .step-text-box .step-desc strong {
+        color: var(--blue);
+      }
+      .ex-progress-row {
+        display: flex;
+        gap: 6px;
+        padding: 6px 16px;
+        align-items: center;
+      }
+      .ex-progress-row .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #e2e8f0;
+        transition: all 0.3s;
+      }
+      .ex-progress-row .dot.active {
+        background: var(--blue);
+        transform: scale(1.3);
+      }
+      .ex-progress-row .dot.done {
+        background: #22c55e;
+      }
+      .ex-progress-bar {
+        height: 4px;
+        background: #e2e8f0;
+        border-radius: 2px;
+        margin: 0 16px 6px;
+        overflow: hidden;
+      }
+      .ex-progress-bar .fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--blue), #22c55e);
+        border-radius: 2px;
+        transition: width 0.3s;
+      }
+      .ex-btn-row {
+        display: flex;
+        gap: 8px;
+        padding: 0 16px 16px;
+      }
+      .ex-btn-row .btn-primary {
+        flex: 1;
+      }
+      .ex-btn-reset {
+        flex: 0 0 auto;
+        padding: 0 16px;
+        display: none;
+        background: #fff;
+        border: 1.5px solid var(--blue);
+        color: var(--blue);
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      @keyframes breathe {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes confetti-fall {
+        to {
+          transform: translateY(120vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+      @keyframes shoulderUp {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      @keyframes eyeBlinkFast {
+        0%,
+        100% {
+          transform: scaleY(1);
+        }
+        15% {
+          transform: scaleY(0.05);
+        }
+        30% {
+          transform: scaleY(1);
+        }
+        45% {
+          transform: scaleY(0.05);
+        }
+        60% {
+          transform: scaleY(1);
+        }
+      }
+    </style>
+  </head>
+  <body data-page="exercise-detail">
+    <div class="canvas">
+      <div>
+        <p class="lbl">Frame 8 — Chi tiết bài tập</p>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen f8">
+            <div
+              class="f8-hero"
+              style="height: auto; min-height: 300px; padding-bottom: 0"
+            >
+              <!-- Back button -->
+              <div class="ex-back" onclick="location.href = 'exercises.html'">
+                <i
+                  class="ti ti-arrow-left"
+                  style="font-size: 18px; color: #0f172a"
+                ></i>
+              </div>
+              <!-- Countdown timer -->
+              <div class="ex-timer" id="stepTimer">15s</div>
+              <!-- Exercise SVG illustration area -->
+              <div class="ex-area">
+                <div class="ex-svg-box" id="exSvgBox">
+                  <!-- SVG will be inserted here -->
+                </div>
+              </div>
+            </div>
+            <div class="f8-body" style="padding-top: 8px">
+              <!-- Exercise info -->
+              <p class="f8-name" id="exName" style="font-size: 18px">
+                Giãn cơ cổ
+              </p>
+              <div class="f8-dur-row">
+                <i class="ti ti-clock"></i>
+                <span id="exDuration" style="color: var(--sub); font-size: 13px"
+                  >3 phút</span
+                >
+                <span style="margin: 0 8px; color: var(--border)">•</span>
+                <span
+                  id="exLevel"
+                  style="
+                    background: #f0fdf4;
+                    color: var(--green);
+                    font-size: 12px;
+                    font-weight: 600;
+                    padding: 3px 10px;
+                    border-radius: 20px;
+                  "
+                  >Dễ</span
+                >
+              </div>
+              <div
+                id="exBenefitBox"
+                style="
+                  background: #eff6ff;
+                  border-radius: 12px;
+                  padding: 8px 12px;
+                  margin: 6px 16px;
+                  display: flex;
+                  align-items: center;
+                  gap: 6px;
+                "
+              >
+                <i
+                  class="ti ti-info-circle"
+                  style="color: var(--blue); font-size: 16px"
+                ></i>
+                <span
+                  id="exBenefitText"
+                  style="font-size: 11px; color: var(--text); line-height: 1.3"
+                  >Giảm đau mỏi cổ</span
+                >
+              </div>
+              <!-- Progress bar -->
+              <div class="ex-progress-bar">
+                <div
+                  class="fill"
+                  id="stepProgressFill"
+                  style="width: 100%"
+                ></div>
+              </div>
+              <!-- Progress dots -->
+              <div class="ex-progress-row" id="stepDots"></div>
+              <!-- Step instruction -->
+              <div class="step-text-box">
+                <div class="step-icon" id="stepNum">1</div>
+                <div class="step-desc" id="stepDesc">Đang tải...</div>
+              </div>
+              <!-- Buttons -->
+              <div class="ex-btn-row">
+                <button class="btn-primary" id="nextStepBtn">👉 Bắt đầu</button>
+                <button class="ex-btn-reset" id="resetBtn">🔄 Làm lại</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="exercise-progress" id="exerciseProgress"><span class="progress-label">Bước 1/4</span></div>
-    <div class="steps">
-      <div class="step-row"><div class="step-num">1</div><p class="step-txt">Ngồi thẳng lưng, thả lỏng hai vai. Nhìn thẳng về phía trước.</p></div>
-      <div class="step-row"><div class="step-num">2</div><p class="step-txt">Từ từ nghiêng đầu sang phải, tai chạm gần vai. Giữ 15 giây.</p></div>
-      <div class="step-row"><div class="step-num">3</div><p class="step-txt">Trở về vị trí ban đầu, nghiêng sang trái. Giữ 15 giây.</p></div>
-      <div class="step-row"><div class="step-num">4</div><p class="step-txt">Lặp lại 5 lần mỗi bên. Thở đều, không giật cơ.</p></div>
-    </div>
-    <button class="btn-primary" id="nextStepBtn" style="margin-top:12px"><i class="ti ti-player-play" aria-hidden="true"></i>&nbsp;Tiếp theo</button>
-  </div>
-</div>
-</div>
-</div>
-</div>
-  <script type="module" src="../js/app.js"></script>
-</body>
+    <script src="../js/app.js"></script>
+  </body>
 </html>

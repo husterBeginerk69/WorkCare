@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WorkCare — Trang chủ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css"
+    />
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/layout.css" />
     <link rel="stylesheet" href="../css/components.css" />
     <link rel="stylesheet" href="../css/screens/home.css" />
-    <link rel="stylesheet" href="../css/screens/ai-chat.css" />
   </head>
   <body data-page="home">
     <div class="canvas">
@@ -21,6 +24,7 @@
           <div class="screen f5">
             <div class="f5-head">
               <div
+                class="f5-top-row"
                 style="
                   display: flex;
                   justify-content: space-between;
@@ -32,34 +36,56 @@
                   <p class="f5-greeting">Chào buổi sáng ☀️</p>
                   <p class="f5-name">Nguyễn Văn An</p>
                 </div>
-                <div
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.2);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: relative;
-                  "
-                >
-                  <i
-                    class="ti ti-bell"
-                    style="color: #fff; font-size: 20px"
-                    aria-hidden="true"
-                  ></i>
+                <div style="display: flex; gap: 8px">
                   <div
                     style="
-                      width: 8px;
-                      height: 8px;
-                      background: #ef4444;
+                      width: 40px;
+                      height: 40px;
                       border-radius: 50%;
-                      position: absolute;
-                      top: 6px;
-                      right: 7px;
+                      background: rgba(255, 255, 255, 0.2);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      position: relative;
+                      cursor: pointer;
                     "
-                  ></div>
+                    onclick="location.href = 'settings.html'"
+                  >
+                    <i
+                      class="ti ti-settings"
+                      style="color: #fff; font-size: 20px"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+                  <div
+                    style="
+                      width: 40px;
+                      height: 40px;
+                      border-radius: 50%;
+                      background: rgba(255, 255, 255, 0.2);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      position: relative;
+                    "
+                  >
+                    <i
+                      class="ti ti-bell"
+                      style="color: #fff; font-size: 20px"
+                      aria-hidden="true"
+                    ></i>
+                    <div
+                      style="
+                        width: 8px;
+                        height: 8px;
+                        background: #ef4444;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 6px;
+                        right: 7px;
+                      "
+                    ></div>
+                  </div>
                 </div>
               </div>
               <div class="timer-card">
@@ -85,7 +111,7 @@
             </div>
             <div id="restModal" class="modal-overlay hidden" aria-hidden="true">
               <div class="modal-card">
-                <p class="modal-title">Đã đến giờ nghỉ!</p>
+                <p class="modal-title">🎉 Đã đến giờ nghỉ!</p>
                 <p class="modal-text">
                   Hãy nghỉ ngơi 10 phút để giữ năng lượng.
                 </p>
@@ -97,150 +123,170 @@
                 </button>
               </div>
             </div>
-            <div class="f5-alert">
-              <i class="ti ti-alarm" aria-hidden="true"></i>
-              <p class="f5-alert-txt">Còn 15 phút nữa đến giờ nghỉ</p>
-            </div>
-            <button class="btn-start" id="timerAction">Bắt đầu</button>
-            <div class="timer-bar-wrap">
-              <div class="pb-lbl-row">
-                <span class="pb-lbl">Hoàn thành</span
-                ><span class="pb-pct" id="timerPercent">0%</span>
+            <div class="scroll-area">
+              <div class="f5-alert">
+                <i class="ti ti-alarm" aria-hidden="true"></i>
+                <p class="f5-alert-txt">Còn 15 phút nữa đến giờ nghỉ</p>
               </div>
-              <div class="pb-track">
-                <div class="pb-fill" id="timerFill"></div>
+              <button class="btn-start" id="timerAction">▶️ Bắt đầu</button>
+              <div class="timer-bar-wrap">
+                <div class="pb-lbl-row">
+                  <span class="pb-lbl">Hoàn thành</span
+                  ><span class="pb-pct" id="timerPercent">0%</span>
+                </div>
+                <div class="pb-track">
+                  <div class="pb-fill" id="timerFill"></div>
+                </div>
               </div>
-            </div>
-            <div class="stats-grid">
-              <div class="stat-card">
-                <p class="stat-val" style="color: var(--blue)">6h 20'</p>
-                <p class="stat-lbl">Làm việc hôm nay</p>
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <p class="stat-val" style="color: var(--blue)">6h 20'</p>
+                  <p class="stat-lbl">Làm việc hôm nay</p>
+                </div>
+                <div class="stat-card">
+                  <p class="stat-val" style="color: var(--green)">5</p>
+                  <p class="stat-lbl">Lần nghỉ ngơi</p>
+                </div>
+                <div class="stat-card">
+                  <p class="stat-val" style="color: var(--teal)">1.5 L</p>
+                  <p class="stat-lbl">Nước đã uống</p>
+                </div>
               </div>
-              <div class="stat-card">
-                <p class="stat-val" style="color: var(--green)">5</p>
-                <p class="stat-lbl">Lần nghỉ ngơi</p>
-              </div>
-              <div class="stat-card">
-                <p class="stat-val" style="color: var(--teal)">1.5 L</p>
-                <p class="stat-lbl">Nước đã uống</p>
-              </div>
-            </div>
-            <div
-              class="quick-actions"
-              style="
-                margin: 18px 16px 0;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-              "
-            >
-              <button class="action-card" id="goWaterBtn" type="button">
-                Uống nước
-              </button>
-              <button class="action-card" id="goExercisesBtn" type="button">
-                Bài tập
-              </button>
-              <button class="action-card" id="goStatsBtn" type="button">
-                Thống kê
-              </button>
-            </div>
-            <div
-              style="
-                margin: 0 16px;
-                background: #fff;
-                border-radius: 16px;
-                border: 1px solid var(--border);
-                padding: 14px;
-              "
-            >
-              <p
+              <div
+                class="quick-actions"
                 style="
-                  font-size: 13px;
-                  font-weight: 600;
-                  color: var(--text);
-                  margin-bottom: 10px;
+                  margin: 18px 16px 0;
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 10px;
                 "
               >
-                Bài tập gợi ý
-              </p>
-              <div style="display: flex; gap: 10px">
-                <div
+                <button class="action-card" id="goWaterBtn" type="button">
+                  💧 Uống nước
+                </button>
+                <button class="action-card" id="goExercisesBtn" type="button">
+                  🤸 Bài tập
+                </button>
+                <button class="action-card" id="goStatsBtn" type="button">
+                  📊 Thống kê
+                </button>
+              </div>
+              <div
+                style="
+                  margin: 0 16px;
+                  background: #fff;
+                  border-radius: 16px;
+                  border: 1px solid var(--border);
+                  padding: 14px;
+                "
+              >
+                <p
                   style="
-                    flex: 1;
-                    background: #eff6ff;
-                    border-radius: 12px;
-                    padding: 10px;
-                    text-align: center;
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--text);
+                    margin-bottom: 10px;
                   "
                 >
-                  <i
-                    class="ti ti-walk"
-                    style="font-size: 22px; color: var(--blue)"
-                    aria-hidden="true"
-                  ></i>
-                  <p
+                  📌 Bài tập gợi ý
+                </p>
+                <div style="display: flex; gap: 10px">
+                  <div
+                    class="suggested-exercise"
                     style="
-                      font-size: 11px;
-                      font-weight: 600;
-                      color: var(--text);
-                      margin-top: 4px;
+                      flex: 1;
+                      background: #eff6ff;
+                      border-radius: 12px;
+                      padding: 10px;
+                      text-align: center;
+                      cursor: pointer;
+                      transition: transform 0.2s;
+                    "
+                    onclick="
+                      location.href = 'exercise-detail.html?name=Giãn cơ cổ'
                     "
                   >
-                    Giãn cơ cổ
-                  </p>
-                  <p style="font-size: 10px; color: var(--sub)">3 phút</p>
-                </div>
-                <div
-                  style="
-                    flex: 1;
-                    background: #f0fdf4;
-                    border-radius: 12px;
-                    padding: 10px;
-                    text-align: center;
-                  "
-                >
-                  <i
-                    class="ti ti-yoga"
-                    style="font-size: 22px; color: var(--green)"
-                    aria-hidden="true"
-                  ></i>
-                  <p
+                    <i
+                      class="ti ti-walk"
+                      style="font-size: 22px; color: var(--blue)"
+                      aria-hidden="true"
+                    ></i>
+                    <p
+                      style="
+                        font-size: 11px;
+                        font-weight: 600;
+                        color: var(--text);
+                        margin-top: 4px;
+                      "
+                    >
+                      Giãn cơ cổ
+                    </p>
+                    <p style="font-size: 10px; color: var(--sub)">3 phút</p>
+                  </div>
+                  <div
+                    class="suggested-exercise"
                     style="
-                      font-size: 11px;
-                      font-weight: 600;
-                      color: var(--text);
-                      margin-top: 4px;
+                      flex: 1;
+                      background: #f0fdf4;
+                      border-radius: 12px;
+                      padding: 10px;
+                      text-align: center;
+                      cursor: pointer;
+                      transition: transform 0.2s;
+                    "
+                    onclick="
+                      location.href = 'exercise-detail.html?name=Thư giãn mắt'
                     "
                   >
-                    Thư giãn mắt
-                  </p>
-                  <p style="font-size: 10px; color: var(--sub)">5 phút</p>
-                </div>
-                <div
-                  style="
-                    flex: 1;
-                    background: #ecfeff;
-                    border-radius: 12px;
-                    padding: 10px;
-                    text-align: center;
-                  "
-                >
-                  <i
-                    class="ti ti-flame"
-                    style="font-size: 22px; color: var(--teal)"
-                    aria-hidden="true"
-                  ></i>
-                  <p
+                    <i
+                      class="ti ti-yoga"
+                      style="font-size: 22px; color: var(--green)"
+                      aria-hidden="true"
+                    ></i>
+                    <p
+                      style="
+                        font-size: 11px;
+                        font-weight: 600;
+                        color: var(--text);
+                        margin-top: 4px;
+                      "
+                    >
+                      Thư giãn mắt
+                    </p>
+                    <p style="font-size: 10px; color: var(--sub)">5 phút</p>
+                  </div>
+                  <div
+                    class="suggested-exercise"
                     style="
-                      font-size: 11px;
-                      font-weight: 600;
-                      color: var(--text);
-                      margin-top: 4px;
+                      flex: 1;
+                      background: #ecfeff;
+                      border-radius: 12px;
+                      padding: 10px;
+                      text-align: center;
+                      cursor: pointer;
+                      transition: transform 0.2s;
+                    "
+                    onclick="
+                      location.href = 'exercise-detail.html?name=Giãn vai'
                     "
                   >
-                    Giãn vai
-                  </p>
-                  <p style="font-size: 10px; color: var(--sub)">5 phút</p>
+                    <i
+                      class="ti ti-flame"
+                      style="font-size: 22px; color: var(--teal)"
+                      aria-hidden="true"
+                    ></i>
+                    <p
+                      style="
+                        font-size: 11px;
+                        font-weight: 600;
+                        color: var(--text);
+                        margin-top: 4px;
+                      "
+                    >
+                      Giãn vai
+                    </p>
+                    <p style="font-size: 10px; color: var(--sub)">5 phút</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -248,7 +294,7 @@
             <div
               class="ai-fab"
               id="aiBtn"
-              onclick="location.href='ai-chat.html'"
+              onclick="location.href = 'ai-chat.html'"
             >
               🤖
             </div>
@@ -274,6 +320,6 @@
         </div>
       </div>
     </div>
-    <script type="module" src="../js/app.js"></script>
+    <script src="../js/app.js"></script>
   </body>
 </html>

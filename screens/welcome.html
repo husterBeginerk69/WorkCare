@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WorkCare — Chào mừng</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css"
+    />
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/layout.css" />
@@ -12,7 +16,6 @@
   </head>
   <body data-page="welcome">
     <div class="canvas">
-      <!-- FRAME 1: Chào mừng -->
       <div>
         <p class="lbl">Frame 1 — Chào mừng</p>
         <div class="phone">
@@ -42,7 +45,6 @@
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <!-- desk -->
                   <rect
                     x="20"
                     y="130"
@@ -67,7 +69,6 @@
                     rx="3"
                     fill="#93C5FD"
                   />
-                  <!-- monitor -->
                   <rect
                     x="60"
                     y="60"
@@ -84,7 +85,6 @@
                     rx="5"
                     fill="#EFF6FF"
                   />
-                  <!-- screen content -->
                   <rect
                     x="72"
                     y="72"
@@ -118,7 +118,6 @@
                     fill="#2563EB"
                     opacity=".2"
                   />
-                  <!-- stand -->
                   <rect
                     x="102"
                     y="132"
@@ -135,7 +134,6 @@
                     rx="2"
                     fill="#60A5FA"
                   />
-                  <!-- person -->
                   <circle cx="155" cy="85" r="14" fill="#FED7AA" />
                   <ellipse cx="155" cy="105" rx="15" ry="18" fill="#2563EB" />
                   <rect
@@ -154,7 +152,6 @@
                     rx="4"
                     fill="#1E40AF"
                   />
-                  <!-- arms -->
                   <path
                     d="M142 108 C135 112 78 118 76 115"
                     stroke="#FED7AA"
@@ -167,7 +164,6 @@
                     stroke-width="6"
                     stroke-linecap="round"
                   />
-                  <!-- sparkles -->
                   <circle cx="40" cy="50" r="4" fill="#BBF7D0" opacity=".8" />
                   <circle cx="185" cy="40" r="3" fill="#BFDBFE" opacity=".8" />
                   <circle cx="200" cy="70" r="5" fill="#BBF7D0" opacity=".6" />
@@ -198,11 +194,25 @@
                   >Đăng nhập</span
                 >
               </p>
+              <p
+                style="
+                  text-align: center;
+                  font-size: 11px;
+                  color: var(--hint);
+                  margin-top: 8px;
+                "
+              >
+                <span
+                  onclick="location.href = '../index.html'"
+                  style="cursor: pointer; text-decoration: underline"
+                  >← Danh sách screens</span
+                >
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script type="module" src="../js/app.js"></script>
+    <script src="../js/app.js"></script>
   </body>
 </html>

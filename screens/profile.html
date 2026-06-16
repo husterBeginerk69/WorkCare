@@ -1,72 +1,169 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WorkCare — Hồ sơ cá nhân</title>
-  <link rel="stylesheet" href="../css/variables.css">
-  <link rel="stylesheet" href="../css/global.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/components.css">
-  <link rel="stylesheet" href="../css/screens/profile.css">
-</head>
-<body data-page="profile">
-<div class="canvas">
-<!-- FRAME 12: Hồ sơ -->
-<div>
-<p class="lbl">Frame 12 — Hồ sơ cá nhân</p>
-<div class="phone">
-<div class="notch"></div>
-<div class="screen f12">
-  <div class="f12-head">
-    <div style="display:flex;justify-content:flex-end"><i class="ti ti-settings" style="font-size:22px;color:rgba(255,255,255,.8)" aria-hidden="true"></i></div>
-    <div class="avatar">VN</div>
-    <p class="f12-name">Nguyễn Văn An</p>
-    <p class="f12-email">van.an@email.com</p>
-    <div class="f12-stats">
-      <div class="f12-stat"><p class="f12-stat-val">14</p><p class="f12-stat-lbl">Ngày streak</p></div>
-      <div class="f12-stat"><p class="f12-stat-val">82%</p><p class="f12-stat-lbl">Tuân thủ</p></div>
-      <div class="f12-stat"><p class="f12-stat-val">2450</p><p class="f12-stat-lbl">Điểm số</p></div>
-    </div>
-  </div>
-  <div class="f12-body">
-    <button class="btn-primary" id="editProfileBtn" style="margin:0 16px">Chỉnh sửa hồ sơ</button>
-    <div class="profile-form hidden">
-      <div class="section-card">
-        <div class="section-head">Chỉnh sửa thông tin</div>
-        <div class="goal-row"><span class="goal-label">Tên</span><input id="profileName" class="inp" value="Nguyễn Văn An"></div>
-        <div class="goal-row"><span class="goal-label">Email</span><input id="profileEmail" class="inp" value="van.an@email.com"></div>
-        <div class="goal-row"><span class="goal-label">Nghề nghiệp</span><input id="profileJob" class="inp" value="Lập trình viên"></div>
-        <div style="padding:14px 16px"><button class="btn-primary" id="profileSaveBtn">Lưu thay đổi</button></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorkCare — Hồ sơ cá nhân</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.24.0/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/screens/profile.css" />
+  </head>
+  <body data-page="profile">
+    <div class="canvas">
+      <!-- FRAME 12: Hồ sơ -->
+      <div>
+        <p class="lbl">Frame 12 — Hồ sơ cá nhân</p>
+        <div class="phone">
+          <div class="notch"></div>
+          <div class="screen f12">
+            <div class="f12-head">
+              <div
+                style="display: flex; justify-content: flex-end"
+                id="goSettingsBtn"
+              >
+                <i
+                  class="ti ti-settings"
+                  style="
+                    font-size: 22px;
+                    color: rgba(255, 255, 255, 0.8);
+                    cursor: pointer;
+                  "
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <div class="avatar">VN</div>
+              <p class="f12-name">Nguyễn Văn An</p>
+              <p class="f12-email">van.an@email.com</p>
+              <div class="f12-stats">
+                <div class="f12-stat">
+                  <p class="f12-stat-val">14</p>
+                  <p class="f12-stat-lbl">Ngày streak</p>
+                </div>
+                <div class="f12-stat">
+                  <p class="f12-stat-val">82%</p>
+                  <p class="f12-stat-lbl">Tuân thủ</p>
+                </div>
+                <div class="f12-stat">
+                  <p class="f12-stat-val">2450</p>
+                  <p class="f12-stat-lbl">Điểm số</p>
+                </div>
+              </div>
+            </div>
+            <div class="f12-body">
+              <button
+                class="btn-primary"
+                id="editProfileBtn"
+                style="margin: 0 16px"
+              >
+                Chỉnh sửa hồ sơ
+              </button>
+              <div class="profile-form hidden">
+                <div class="section-card">
+                  <div class="section-head">Chỉnh sửa thông tin</div>
+                  <div class="goal-row">
+                    <span class="goal-label">Tên</span
+                    ><input
+                      id="profileName"
+                      class="inp"
+                      value="Nguyễn Văn An"
+                    />
+                  </div>
+                  <div class="goal-row">
+                    <span class="goal-label">Email</span
+                    ><input
+                      id="profileEmail"
+                      class="inp"
+                      value="van.an@email.com"
+                    />
+                  </div>
+                  <div class="goal-row">
+                    <span class="goal-label">Nghề nghiệp</span
+                    ><input
+                      id="profileJob"
+                      class="inp"
+                      value="Lập trình viên"
+                    />
+                  </div>
+                  <div style="padding: 14px 16px">
+                    <button class="btn-primary" id="profileSaveBtn">
+                      Lưu thay đổi
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="section-card">
+                <div class="section-head">Mục tiêu sức khỏe</div>
+                <div class="goal-row">
+                  <span class="goal-label">Thời gian làm việc tối đa</span
+                  ><span class="goal-val">60 phút</span>
+                </div>
+                <div
+                  style="height: 1px; background: var(--border); margin: 0 16px"
+                ></div>
+                <div class="goal-row">
+                  <span class="goal-label">Thời gian nghỉ ngơi</span
+                  ><span class="goal-val">10 phút</span>
+                </div>
+                <div
+                  style="height: 1px; background: var(--border); margin: 0 16px"
+                ></div>
+                <div class="goal-row">
+                  <span class="goal-label">Mục tiêu uống nước</span
+                  ><span class="goal-val">2.5 lít/ngày</span>
+                </div>
+              </div>
+              <div class="section-card">
+                <div class="section-head">Thông tin cá nhân</div>
+                <div class="goal-row">
+                  <span class="goal-label">Nghề nghiệp</span
+                  ><span class="goal-val">Lập trình viên</span>
+                </div>
+                <div
+                  style="height: 1px; background: var(--border); margin: 0 16px"
+                ></div>
+                <div class="goal-row">
+                  <span class="goal-label">Ngày tham gia</span
+                  ><span class="goal-val">01/03/2025</span>
+                </div>
+                <div
+                  style="height: 1px; background: var(--border); margin: 0 16px"
+                ></div>
+                <div class="goal-row">
+                  <span class="goal-label">Cấp độ hiện tại</span
+                  ><span class="goal-val" style="color: var(--green)"
+                    >🌿 Chăm chỉ</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="nav-bar">
+              <div class="nav-item">
+                <i class="ti ti-home" aria-hidden="true"></i
+                ><span>Trang chủ</span>
+              </div>
+              <div class="nav-item">
+                <i class="ti ti-chart-bar" aria-hidden="true"></i
+                ><span>Thống kê</span>
+              </div>
+              <div class="nav-item">
+                <i class="ti ti-trophy" aria-hidden="true"></i
+                ><span>Thành tích</span>
+              </div>
+              <div class="nav-item active">
+                <i class="ti ti-user" aria-hidden="true"></i
+                ><span>Cá nhân</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="section-card">
-      <div class="section-head">Mục tiêu sức khỏe</div>
-      <div class="goal-row"><span class="goal-label">Thời gian làm việc tối đa</span><span class="goal-val">60 phút</span></div>
-      <div style="height:1px;background:var(--border);margin:0 16px"></div>
-      <div class="goal-row"><span class="goal-label">Thời gian nghỉ ngơi</span><span class="goal-val">10 phút</span></div>
-      <div style="height:1px;background:var(--border);margin:0 16px"></div>
-      <div class="goal-row"><span class="goal-label">Mục tiêu uống nước</span><span class="goal-val">2.5 lít/ngày</span></div>
-    </div>
-    <div class="section-card">
-      <div class="section-head">Thông tin cá nhân</div>
-      <div class="goal-row"><span class="goal-label">Nghề nghiệp</span><span class="goal-val">Lập trình viên</span></div>
-      <div style="height:1px;background:var(--border);margin:0 16px"></div>
-      <div class="goal-row"><span class="goal-label">Ngày tham gia</span><span class="goal-val">01/03/2025</span></div>
-      <div style="height:1px;background:var(--border);margin:0 16px"></div>
-      <div class="goal-row"><span class="goal-label">Cấp độ hiện tại</span><span class="goal-val" style="color:var(--green)">🌿 Chăm chỉ</span></div>
-    </div>
-  </div>
-  <div class="nav-bar">
-    <div class="nav-item"><i class="ti ti-home" aria-hidden="true"></i><span>Trang chủ</span></div>
-    <div class="nav-item"><i class="ti ti-chart-bar" aria-hidden="true"></i><span>Thống kê</span></div>
-    <div class="nav-item"><i class="ti ti-trophy" aria-hidden="true"></i><span>Thành tích</span></div>
-    <div class="nav-item active"><i class="ti ti-user" aria-hidden="true"></i><span>Cá nhân</span></div>
-  </div>
-</div>
-</div>
-</div>
-</div>
-  <script type="module" src="../js/app.js"></script>
-</body>
+    <script src="../js/app.js"></script>
+  </body>
 </html>

@@ -8,18 +8,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg);
+  background: #f0f4f8;
   color: var(--text);
   transition:
     background 0.3s ease,
-    color 0.3s ease,
-    opacity 0.3s ease;
-}
-body {
-  opacity: 0;
-}
-body.ready {
-  opacity: 1;
+    color 0.3s ease;
 }
 .hidden {
   display: none !important;
@@ -52,38 +45,22 @@ body.ready {
   font-size: 14px;
   color: var(--text);
 }
-/*.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.65);
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
-  z-index: 20;
-}*/
-
-.modal-overlay{
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    background:rgba(0,0,0,.45);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    z-index:999;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.25s ease;
 }
-.screen{
-    position:relative;
+.screen {
+  position: relative;
 }
-
 .modal-card {
   background: #fff;
   border-radius: 24px;
@@ -144,7 +121,14 @@ body.ready {
 .btn-outline:hover,
 .btn-primary:hover {
   opacity: 0.95;
+  transform: translateY(-1px);
 }
+.btn-outline:active,
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* ========== KEYFRAME ANIMATIONS ========== */
 @keyframes scaleIn {
   from {
     transform: scale(0.9);
@@ -156,15 +140,251 @@ body.ready {
   }
 }
 
-html,
-body {
-  min-height: 100vh;
-  margin: 0;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-body {
-  font-family: "Be Vietnam Pro", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f0f4f8;
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== SCREEN TRANSITIONS ========== */
+.screen {
+  animation: fadeIn 0.3s ease;
+}
+
+/* ========== STAGGERED ANIMATIONS ========== */
+.stagger > * {
+  animation: fadeInUp 0.4s ease backwards;
+}
+.stagger > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.stagger > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.stagger > *:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.stagger > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.stagger > *:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.stagger > *:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+/* ========== HOVER EFFECTS ========== */
+.hover-lift {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== RIPPLE BUTTON ========== */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.btn-ripple::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: scale(0);
+  pointer-events: none;
+}
+.btn-ripple:active::after {
+  animation: ripple 0.5s ease-out;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 420px) {
+  .canvas {
+    padding: 0;
+  }
+  .phone {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .notch {
+    display: none;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 768px) {
+  .phone {
+    width: 375px;
+    height: 700px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .phone {
+    width: 375px;
+    height: 750px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .phone {
+    width: 375px;
+    height: 812px;
+  }
+}
+
+/* ========== SCROLLBAR STYLING ========== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ========== SELECTION ========== */
+::selection {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* ========== FOCUS VISIBLE ========== */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
